@@ -32,6 +32,8 @@
 }
 
 - (void)test {
+    [RAMExport.sharedInstance executeArrayForKey:@"B"];
+    
     [RAMExport.sharedInstance executeArrayForKey:@"A"];
 
     [RAMExport.sharedInstance executeBlockForKey:@"A"];
@@ -39,11 +41,11 @@
     NSString *str = [RAMExport.sharedInstance valueForKey:@"S"];
     NSLog(@"%@", str);
     
-    if ([RAMExport.sharedInstance hasPlacedAtSection:@"__ram.data"]) {
-        NSLog(@"YES");
-    } else {
-        NSLog(@"NO");
-    }
+//    if ([RAMExport.sharedInstance hasPlacedAtSection:@"__ram.data"]) {
+//        NSLog(@"YES");
+//    } else {
+//        NSLog(@"NO");
+//    }
 }
 
 

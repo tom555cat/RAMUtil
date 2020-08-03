@@ -115,13 +115,15 @@ BOOL RAMHasSection(char *segname, char *sectname) {
 // http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0474c/CACJAJGD.html
     
     
-    Dl_info info;
-    dladdr((const void *)&RAMHasSection, &info);
-
-    const RAMExportValue mach_header = (RAMExportValue)info.dli_fbase;
-    const RAMExportSection *section = RAMGetSectByNameFromHeader((void *)mach_header, segname, sectname);
-    if (section == NULL) return NO;
-    else return YES;
+//    Dl_info info;
+//    dladdr((const void *)&RAMHasSection, &info);
+//
+//    const RAMExportValue mach_header = (RAMExportValue)info.dli_fbase;
+//    const RAMExportSection *section = RAMGetSectByNameFromHeader((void *)mach_header, segname, sectname);
+//    if (section == NULL) return NO;
+//    else return YES;
+    
+    return YES;
 }
 
 NSObject * RAMGetString(NSString *key) {
@@ -229,7 +231,8 @@ void RAMExecuteBlock(char *key) {
 }
 
 - (BOOL)hasPlacedAtSection:(NSString *)section {
-    return RAMHasSection("__RAM", (char *)[section UTF8String]);
+    //return RAMHasSection("__RAM", (char *)[section UTF8String]);
+    return YES;
 }
 @end
 
